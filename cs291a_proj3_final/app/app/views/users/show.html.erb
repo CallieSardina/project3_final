@@ -1,0 +1,22 @@
+<!-- app/views/users/show.html.erb -->
+<h1><%= @user.name %></h1>
+<p><strong>Email:</strong> <%= @user.email %></p>
+
+<%= link_to 'Edit user', edit_user_path(@user) %> 
+<%= link_to "Delete User", user_path(@user), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+
+<%= link_to 'New Post', new_post_path(@user) %>
+
+<!-- Display links to all the user's posts -->
+<h2>Posts:</h2>
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= link_to post.title, post_path(@user, post) %></li>
+  <% end %>
+</ul>
+
+
+

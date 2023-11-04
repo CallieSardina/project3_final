@@ -1,0 +1,17 @@
+<h1><%= @user.name %></h1>
+
+<ul>
+  <li><%= link_to "Edit User", edit_user_path(@user) %></li>
+  <li><%= link_to "Destroy User", user_path(@user), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+<%= link_to "New Post", new_post_path(@user) %>
+
+<%= link_to "Post List", user_posts_path(@user) %>
+
+<h2>Posts</h2>
+<%= render @user.posts %>
+
